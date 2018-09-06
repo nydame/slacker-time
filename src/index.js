@@ -42,6 +42,7 @@ app.post('/command', (req, res) => {
 
   // Verify the signing secret
   if (signature.isVerified(req)) {
+    console.log('Verified');
     // create the dialog payload - includes the dialog structure, Slack API token,
     // and trigger ID
     const dialog = {
@@ -89,7 +90,7 @@ app.post('/command', (req, res) => {
         res.sendStatus(500);
       });
   } else {
-    debug('Verification token mismatch');
+    console.log('Verification token mismatch');
     res.sendStatus(404);
   }
 });
