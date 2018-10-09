@@ -4,6 +4,7 @@ dependencies:
   debug: 3.1.0
   dotenv: 4.0.0
   express: 4.16.3
+  tsscmp: 1.0.6
 packages:
   /accepts/1.3.5:
     dependencies:
@@ -433,6 +434,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+  /tsscmp/1.0.6:
+    dev: false
+    engines:
+      node: '>=0.6.x'
+    resolution:
+      integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==
   /type-is/1.6.16:
     dependencies:
       media-typer: 0.3.0
@@ -469,3 +476,4 @@ specifiers:
   debug: ^3.1.0
   dotenv: ^4.0.0
   express: ^4.15.2
+  tsscmp: ^1.0.6

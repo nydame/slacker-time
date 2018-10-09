@@ -42,7 +42,6 @@ app.post('/command', (req, res) => {
 
   // Verify the signing secret
   if (signature.isVerified(req)) {
-    console.log('Verified');
     // create the dialog payload - includes the dialog structure, Slack API token,
     // and trigger ID
     const dialog = {
@@ -90,7 +89,7 @@ app.post('/command', (req, res) => {
         res.sendStatus(500);
       });
   } else {
-    console.log('Verification token mismatch');
+    debug('Verification token mismatch');
     res.sendStatus(404);
   }
 });
@@ -99,7 +98,7 @@ app.post('/command', (req, res) => {
  * Endpoint to receive the dialog submission. Checks the verification token
  * and creates a Helpdesk ticket
  */
-app.post('/interactive-component', (req, res) => {
+app.post('/interactive', (req, res) => {
   const body = JSON.parse(req.body.payload);
 
   // check that the verification token matches expected value
