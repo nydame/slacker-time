@@ -10,11 +10,11 @@ Use a slash command and a dialog to create a helpdesk ticket in a 3rd-party syst
 
 ## Setup
 
-### Remix this Glitch repo
+### 1. Remix this Glitch repo
 
 [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/remix/slack-slash-command-and-dialogs-blueprint)
 
-### Create a Slack app
+### 2. Create a Slack app
 
 1. Create an app at [https://api.slack.com/apps](https://api.slack.com/apps)
 2. Add a Slash command (See *Add a Slash Command* section below)
@@ -42,7 +42,9 @@ If you did "Remix" on Glitch, it auto-generate a new URL with two random words, 
 1. Save the change.
 
 
-### Set Your Credentials
+## Run this App
+
+Set Environment Variables and run:
 
 1. Set the following environment variables to `.env` (see `.env.sample`):
     * `SLACK_ACCESS_TOKEN`: Your bot token, `xoxb-` (available on the **OAuth & Permissions** once you install the app)
