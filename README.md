@@ -32,7 +32,7 @@ Use a slash command and a dialog to create a helpdesk ticket in a 3rd-party syst
     * Short description: `Create a helpdesk ticket`
     * Usage hint: `[the problem you're having]`
 
-If you are using Glitch, the Request URL should look like: `https://my-slash-comm-app.glitch.me/command`.
+If you did "Remix" on Glitch, it auto-generate a new URL with two random words, so your Request URL should be like: `https://fancy-feast.glitch.me/command`. 
 
 
 #### Enable Interactive Components
