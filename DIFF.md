@@ -4,14 +4,14 @@ Now all the Blueprints examples have been updated with new Slack platform featur
 
 ## OAuth Token
 
-Your OAuth access token should begins with `-xoxb` instead of `-xoxp`. The bot tokens will be the defaul token in future.
+Your OAuth access token should begin with `-xoxb` instead of `-xoxp`. The bot tokens will be the default token in future.
 
 
 ## Sigining Secret 
 
-*This requires to update your code!*
+*This requires you to update your code!*
 
-Previously, you needed to verify a *verificatin token* to see if a request was coming from Slack, not from some malicious place by simply comparing a string with the legacy token with a token received with a payload. But now you must use more secure *sigining secrets*.
+Previously, you needed to verify a *verification token* to see if a request was coming from Slack, not from some malicious place, by simply comparing a string with the legacy token with a token received with a payload. But now you must use more secure *sigining secrets*.
 
 Basically, you need to compare the value of the `X-Slack-Signature`, the HMAC-SHA256 keyed hash of the raw request payload, with a hashed string containing your Slack signin secret code, combined with the version and `X-Slack-Request-Timestamp`. 
 
@@ -24,7 +24,7 @@ OAuth refresh tokens are also introduced as a security feature, which allows the
 
 Your workspace app can use the new `apps.uninstall` method to uninstall itself from a single workspace, revoking all tokens associated with it. To revoke a workspace token without uninstalling the app, use `auth.revoke`.
 
-Although the example of using the short-lived refresh token is *not* included in this Blurprints example since this tutorial is written for internal integration, if you are distributing your app, use a short-lived OAuth Refresh token. Implementing token rotation is required for all apps that are distributed, whether submitted for the App Directory or not.
+Although the example of using the short-lived refresh token is *not* included in this Blueprints example since this tutorial is written for internal integrations, if you are distributing your app, use a short-lived OAuth Refresh token. Implementing token rotation is required for all apps that are distributed, whether submitted for the App Directory or not.
 
 To lean more, read [Token rotation for workspace apps](https://api.slack.com/docs/rotating-and-refreshing-credentials).
 
