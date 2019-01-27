@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
 });
 
 /*
- * Endpoint to receive /helpdesk slash command from Slack.
+ * Endpoint to receive /slackertime slash command from Slack.
  * Checks verification token and opens a dialog to capture more info.
  */
-app.post('/command', (req, res) => {
+app.post('/slackertime', (req, res) => {
   // extract the slash command text, and trigger ID from payload
   const { text, trigger_id } = req.body;
 
@@ -64,16 +64,6 @@ app.post('/command', (req, res) => {
             type: 'textarea',
             name: 'description',
             optional: true,
-          },
-          {
-            label: 'Urgency',
-            type: 'select',
-            name: 'urgency',
-            options: [
-              { label: 'Low', value: 'Low' },
-              { label: 'Medium', value: 'Medium' },
-              { label: 'High', value: 'High' },
-            ],
           },
         ],
       }),
