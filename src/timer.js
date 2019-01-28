@@ -49,10 +49,10 @@ const sendConfirmation = (ticket) => {
   });
 };
 
-// Create helpdesk ticket. Call users.getUserInfo to get the user's email address
+// Create message. Call users.getUserInfo to get the user's email address
 // from their user ID
-const create = (userId, submission) => {
-  const ticket = {};
+const create = (userId) => {
+  const message = {};
 
   const fetchUserEmail = new Promise((resolve, reject) => {
     users.getUserInfo(userId).then((result) => {
@@ -62,14 +62,11 @@ const create = (userId, submission) => {
   });
 
   fetchUserEmail.then((result) => {
-    ticket.userId = userId;
-    ticket.userEmail = result;
-    ticket.title = submission.title;
-    ticket.description = submission.description;
-    ticket.urgency = submission.urgency;
-    sendConfirmation(ticket);
+    message.userId = userId;
+    message.userEmail = result;
+    sendConfirmation(message);
 
-    return ticket;
+    return message;
   }).catch((err) => { console.error(err); });
 };
 

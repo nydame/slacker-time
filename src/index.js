@@ -86,22 +86,22 @@ app.post('/slackertime', (req, res) => {
 });
 
 /*
- * Endpoint to receive the dialog submission. Checks the verification token
- * and creates a Helpdesk ticket
+ * Endpoint receives user request, then checks the verification token
+ * and creates a message to send back
  */
 app.post('/interactive', (req, res) => {
   const body = JSON.parse(req.body.payload);
 
   // check that the verification token matches expected value
   if (signature.isVerified(req)) {
-    debug(`Request received: ${body.submission.trigger_id}`);
+    debug(`Request for time active received`);
 
     // immediately respond with a empty 200 response to let
     // Slack know the command was received
     res.send('');
 
-    // create Helpdesk ticket
-    ticket.create(body.user.id, body.submission);
+    // create message to send back
+    timer.create(body.user.id);
   } else {
     debug('Token mismatch');
     res.sendStatus(404);
