@@ -4,7 +4,8 @@ const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const qs = require('querystring');
-const ticket = require('./ticket');
+const ticket = require('./ticket'); // REMOVE
+const timer = require('./timer');
 const signature = require('./verifySignature');
 const debug = require('debug')('slash-command-template:index');
 
@@ -93,7 +94,7 @@ app.post('/interactive', (req, res) => {
 
   // check that the verification token matches expected value
   if (signature.isVerified(req)) {
-    debug(`Form submission received: ${body.submission.trigger_id}`);
+    debug(`Request received: ${body.submission.trigger_id}`);
 
     // immediately respond with a empty 200 response to let
     // Slack know the command was received
