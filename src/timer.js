@@ -50,7 +50,7 @@ const sendTimeActive = (ticket) => {
 
 // Create message. 
 const create = (userId) => {
-  return {};
+  return {"userId": userId, "title": "Slacker Time", "description": `hello <@{$userId}>`};
   // const message = {};
 
 //   const fetchUserEmail = new Promise((resolve, reject) => {
