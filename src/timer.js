@@ -4,10 +4,9 @@ const qs = require('querystring');
 const users = require('./users');
 
 /*
- *  Send ticket creation confirmation via
- *  chat.postMessage to the user who created it
+ *  Send time spent in Slack via chat.postMessage to the user who created it
  */
-const sendConfirmation = (ticket) => {
+const sendTimeActive = (ticket) => {
   axios.post('https://slack.com/api/chat.postMessage', qs.stringify({
     token: process.env.SLACK_ACCESS_TOKEN,
     channel: ticket.userId,
@@ -42,32 +41,31 @@ const sendConfirmation = (ticket) => {
       },
     ]),
   })).then((result) => {
-    debug('sendConfirmation: %o', result.data);
+    debug('sendTimeActive: %o', result.data);
   }).catch((err) => {
-    debug('sendConfirmation error: %o', err);
+    debug('sendTimeActive error: %o', err);
     console.error(err);
   });
 };
 
-// Create message. Call users.getUserInfo to get the user's email address
-// from their user ID
+// Create message. 
 const create = (userId) => {
   const message = {};
 
-  const fetchUserEmail = new Promise((resolve, reject) => {
-    users.getUserInfo(userId).then((result) => {
-      debug(`Find user: ${userId}`);
-      resolve(result.data.user.profile.email);
-    }).catch((err) => { reject(err); });
-  });
+//   const fetchUserEmail = new Promise((resolve, reject) => {
+//     users.getUserInfo(userId).then((result) => {
+//       debug(`Find user: ${userId}`);
+//       resolve(result.data.user.profile.email);
+//     }).catch((err) => { reject(err); });
+//   });
 
-  fetchUserEmail.then((result) => {
-    message.userId = userId;
-    message.userEmail = result;
-    sendConfirmation(message);
+//   fetchUserEmail.then((result) => {
+//     message.userId = userId;
+//     message.userEmail = result;
+//     sendTimeActive(message);
 
-    return message;
-  }).catch((err) => { console.error(err); });
+//     return message;
+//   }).catch((err) => { console.error(err); });
 };
 
-module.exports = { create, sendConfirmation };
+module.exports = { create, sendTimeActive };
