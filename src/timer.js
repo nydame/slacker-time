@@ -1,7 +1,8 @@
 const axios = require('axios');
 const debug = require('debug')('slash-command-template:ticket');
 const qs = require('querystring');
-const users = require('./users');
+const realTimeMessaging = require('./rtm');
+// const users = require('./users');
 
 
 // Create message. 

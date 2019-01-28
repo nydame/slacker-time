@@ -1,7 +1,7 @@
 const axios = require('axios');
 const debug = require('debug')('slash-command-template:ticket');
 const qs = require('querystring');
-const users = require('./users');
+// const users = require('./users');
 
 /*
  *  Send ticket creation confirmation via
