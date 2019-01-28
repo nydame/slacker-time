@@ -50,7 +50,8 @@ const sendTimeActive = (ticket) => {
 
 // Create message. 
 const create = (userId) => {
-  const message = {};
+  return {};
+  // const message = {};
 
 //   const fetchUserEmail = new Promise((resolve, reject) => {
 //     users.getUserInfo(userId).then((result) => {

@@ -100,8 +100,9 @@ app.post('/interactive', (req, res) => {
     // Slack know the command was received
     res.send('');
 
-    // create message to send back
+    // create message to send back based on user ID
     timer.create(body.user.id);
+    
   } else {
     debug('Token mismatch');
     res.sendStatus(404);
