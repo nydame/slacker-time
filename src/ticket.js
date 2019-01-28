@@ -49,13 +49,13 @@ const sendConfirmation = (ticket) => {
   });
 };
 
-// Create helpdesk ticket. Call users.find to get the user's email address
+// Create helpdesk ticket. Call users.getUserInfo to get the user's email address
 // from their user ID
 const create = (userId, submission) => {
   const ticket = {};
 
   const fetchUserEmail = new Promise((resolve, reject) => {
-    users.find(userId).then((result) => {
+    users.getUserInfo(userId).then((result) => {
       debug(`Find user: ${userId}`);
       resolve(result.data.user.profile.email);
     }).catch((err) => { reject(err); });
